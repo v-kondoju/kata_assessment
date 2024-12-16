@@ -12,7 +12,7 @@ Hint - You would need some distributed computing platform
 #This project challenge has files following the given requirement of generating the csv file and anonymizing the sensitive data (columns - first_name, last_name, address),
 
 Files/Scrpipts:
-1. 'csv_data-gen.py' - generating the csv files with random data
+1. 'csv_datagen.py' - generating the csv files with random data
 2. 'csv_anony.py'    - this script anonymize the data using pandas (small files)
 3. 'spark_anony.py'  - this script anonymize the large datasets (real-time data)
 
