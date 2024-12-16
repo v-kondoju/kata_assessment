@@ -1,0 +1,7 @@
+req1 = pandas
+req2 = faker
+req3 = random
+req4 = pyspark
+
+installation_code:
+pip install packages
