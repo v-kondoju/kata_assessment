@@ -1,5 +1,7 @@
 import csv
+import pandas as pd
 from faker import Faker
+import pyarrow
 
 # generate_csv function : Generates a CSV file with fake data - realistic data.
 def generate_csv(file_name, num_rows):
@@ -16,9 +18,13 @@ def generate_csv(file_name, num_rows):
                 fake.address().replace('\n', ', '), # address includes street city state and zipcode separated by ','
                 fake.date_of_birth(minimum_age=10, maximum_age=100).strftime("%m/%d/%Y") # date of birth is formatted as mm/dd/yyyy with age range of 10 to 100 years
             ])
+    data_frame = pd.read_csv(file_name)
+
+    # Converting the csv file to parquet file -- better performance
+    data_frame.to_parquet("*\\parquet_file.parquet")
+
 
 if __name__ == "__main__":
-
-    # this variable is assigned the path in the local computer where the data is to be saved for further processing.
-    output_path = "C:\\*\\sample_data.csv"
+    # this variable is assigned the path of the file in the local computer where the data is to be saved for further processing.
+    output_path = "*\\sample_data.csv"
     generate_csv(output_path, 10**7) # ~2GB data
